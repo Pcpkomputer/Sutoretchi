@@ -4,21 +4,15 @@ var IsiIMG = $("#viewer");
 var pej = $(".wid60")[0]	
 									
 IsiIMG.empty();	
-
-
-for(i = 0; i < pej.length ; i++)											
-{
-	
-	url = pej[i].value;	
-	//console.log(url);				
-	IsiIMG.append('<div id=img'+i+'></div>')
-	$('#img'+i).load( url +' #image', function() {
-    //console.log("zzzzzzzzzzzzzzzzzz");
-	$('#image').css("display", "inline");
-	//var isi=$('#image').attr('src');
-	//console.log(isi);
-		});			
+var link;
+var isi="";
+link=window.location.href;
+$.getJSON("https://test-yudha.herokuapp.com/?mode=json&link="+link, function(data){
+for(i=0;i<data.links.length;i++){
+	isi+='<img src="'+data.links[i]+'" onload="loadImg(this)" style="display: inline;margin:0 auto;" width="777" id="image"/>'
 }
+IsiIMG.append(isi);
+});
 	return true;
   
 })();
