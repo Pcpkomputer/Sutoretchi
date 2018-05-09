@@ -1,4 +1,4 @@
-# Sutoretchi
+# Sutoretchi [Mangahere.cc]
 my companion in digesting mango's :wink:
 # API
 Return a json array :
